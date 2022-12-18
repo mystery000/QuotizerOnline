@@ -1,7 +1,7 @@
 <?php
     //initial setting variables for quotize online app
     $preset_time = 3000;
-    $text_formatting = 'arial';
+    $text_formatting = "'Montserrat', Helvetica, Arial, sans-serif, Helvetica, Arial, sans-serif";
 
     //get all images(jpg, png) from assets
     function getImages($dir) {
@@ -62,6 +62,7 @@
             z-index: 20;
             text-shadow: 0 1px 2px rgba(0,0,0,.6);
             font-size: 200%;
+            font-family: <?php echo $text_formatting; ?>
         }
   </style>
 </head>
@@ -91,18 +92,6 @@
     <div class="slideshow">
         <div id="carousel" class="carousel carousel-fade">
         <div class="carousel-inner">
-            <!-- <div class="carousel-item active">
-                <div class="carousel-content">Default overlay</div>
-                <img src="./assets/pix/img_001.jpg" class="d-block w-100" alt="...">
-            </div>
-            <div class="carousel-item">
-                <img src="./assets/pix/img_002.jpg" class="d-block w-100" alt="...">
-                <div class="carousel-content">Default overlay</div>
-            </div>
-            <div class="carousel-item">
-                <img src="./assets/pix/img_003.jpg" class="d-block w-100" alt="...">
-                <div class="carousel-content">Default overlay</div>
-            </div> -->
             <?php
                 foreach ($images as $index => $image) {
                     $active = !$index ? "active" : "";
@@ -117,7 +106,7 @@
     </div>
     <div class="player">
         <audio id="musicplayer" controls autoplay>
-            <source src="http://media.w3.org/2010/07/bunny/04-Death_Becomes_Fur.mp4" type="audio/mpeg">
+            <source src="<?php echo $audios[array_rand($audios)]; ?>" type="audio/mpeg">
         </audio>
     </div>
 </body>
@@ -142,7 +131,6 @@
             ride: "carousel",
             wrap: true,
         });
-        
     }, preset_time);
     
 </script>
