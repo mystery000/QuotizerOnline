@@ -45,9 +45,10 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link href="./assets/css/landing_babel.css" rel="stylesheet" />
   <link href="./assets/css/audio_player.css" rel="stylesheet" />
+  <link rel="stylesheet" href="./assets/green-audio-player-master/css/green-audio-player.css">
   <link rel="shortcut icon" href="#" />
   <style>
-        audio {
+        .player {
             position: -webkit-sticky;
             position: fixed;
             z-index: 99999;
@@ -104,11 +105,12 @@
         </div>
         </div>
     </div>
-    <div class="player">
-        <audio id="musicplayer" controls autoplay>
+    <div class="player">   
+        <audio crossorigin autoplay id="musicplayer">
             <source src="<?php echo $audios[array_rand($audios)]; ?>" type="audio/mpeg">
         </audio>
     </div>
+    
 </body>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
@@ -118,7 +120,12 @@
 <script src="./assets/js/audio_player.js" type="text/javascript"></script>
 <script src="./assets/js/babel.min.js"></script>
 <script src="./assets/js/landing_babel.js" type="text/babel"></script>
+<script src="./assets/green-audio-player-master/js/green-audio-player.js"></script>
 <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        new GreenAudioPlayer('.player');
+    });
+
     var preset_time = <?php echo $preset_time; ?>;
     //initialize quotize onlien app
     $("#carousel").hide();
