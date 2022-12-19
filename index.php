@@ -111,7 +111,7 @@
     </div>
 </body>
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="./assets/js/particles.min.js"></script>
 <!-- <script src="./assets/js/loader_particles.js" type="text/javascript"></script> -->
@@ -120,11 +120,12 @@
 <script src="./assets/js/landing_babel.js" type="text/babel"></script>
 <script>
     var preset_time = <?php echo $preset_time; ?>;
+    //initialize quotize onlien app
     $("#carousel").hide();
     setTimeout(() => {
         $(".landing").hide();
-        $("canvas").remove();
-        $(".ball").remove();
+        $("canvas").hide();
+        $(".ball").hide();
         $("#carousel").show();
         var carousel = new bootstrap.Carousel($("#carousel"), {
             interval: preset_time,
@@ -132,7 +133,26 @@
             wrap: true,
         });
     }, preset_time);
-    
+
+    //running quotizer online app continuously      
+    var audioPlayer = $("#musicplayer");
+    audioPlayer.on("ended", (event) => {
+        $(".landing").toggle();
+        $("canvas").toggle();
+        $(".ball").toggle();
+        $("#carousel").toggle();
+        //add shuffle audios and then change audio src
+        var mp3 = "<?php echo $audios[array_rand($audios)];?> ";
+        audioPlayer.get(0).src = mp3;
+        audioPlayer.get(0).load();
+        audioPlayer.get(0).play();
+        setTimeout(() => {
+            $(".landing").toggle();
+            $("canvas").toggle();
+            $(".ball").toggle();
+            $("#carousel").toggle();
+        }, preset_time);
+    });
 </script>
 </html>
 
