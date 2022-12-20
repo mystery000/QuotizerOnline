@@ -1,7 +1,8 @@
 <?php
     //initial setting variables for quotize online app
     $preset_time = 3000;
-    $text_formatting = "'Montserrat', Helvetica, Arial, sans-serif, Helvetica, Arial, sans-serif";
+    $text_formatting = "Montserrat";
+    $quote_config_path = "./assets/txt/config.csv";
 
     //get all images(jpg, png) from assets
     function getImages($dir) {
@@ -26,6 +27,31 @@
         fclose($CSVfp);
         return $quotes;
     }
+    //get only quote that categories exists in config.csv
+    function getQuote($index) {
+        global $quote_config_path;
+        global $quotes;
+        
+        $categories = [];
+        $config_categories = [];
+        //get categories of quote
+        $categories = array_slice($quotes[$index], 5);
+        $CSVfp = fopen($quote_config_path, "r");
+        if($CSVfp != FALSE) {
+            if(!feof($CSVfp)) {
+                $data = fgetcsv($CSVfp, 1000, ";");
+                if(!empty($data)) $config_categories = $data;
+            }
+        };
+        //check if config has categories of quote
+        foreach($categories as $key => $category) {
+            if($category && in_array($category, $config_categories)) {
+                return $quotes[$index][4];
+            }
+        };
+        return $quotes[$index][4];
+    }
+    
     // get all resources form assets
     $quotes = getQuotes("./assets/txt/DKM.csv");
     $audios = getAudios("./assets/mp3/");
@@ -43,15 +69,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- <link href="./assets/css/loader_particles.css" rel="stylesheet" /> -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css'>
   <link href="./assets/css/landing_babel.css" rel="stylesheet" />
   <link href="./assets/css/audio_player.css" rel="stylesheet" />
-  <link rel="stylesheet" href="./assets/green-audio-player-master/css/green-audio-player.css">
+  <link rel="stylesheet" href="./assets/green-audio-player-master/css/green-audio-player.min.css">
   <link rel="shortcut icon" href="#" />
   <style>
         .player {
             position: -webkit-sticky;
             position: fixed;
-            z-index: 99999;
+            z-index: 9999;
             bottom:0;
             width: 100%;
         }
@@ -62,8 +89,84 @@
             color: white;
             z-index: 20;
             text-shadow: 0 1px 2px rgba(0,0,0,.6);
-            font-size: 200%;
-            font-family: <?php echo $text_formatting; ?>
+            font-size: 5vw;
+            font-weight: bold;
+            font-family: <?php echo $text_formatting; ?>;
+            -webkit-text-stroke-width: 1px;
+            -webkit-text-stroke-color: black;
+        }
+        .bi-play-circle-fill{
+            position: absolute;
+            z-index: 9999999;
+            border-radius: 170px;
+            padding: 0px;
+            cursor: pointer;
+            display: none;
+        }
+        .bi-play-circle-fill:hover {
+
+        }
+        @media screen and (min-width: 400px) {
+            .bi-play-circle-fill {
+                font-size: 6rem;
+                top: 27%;
+                left: 42%;
+            }
+        }
+        @media  screen and (min-width: 767px) {
+            .carousel-content {
+                bottom: 20%;
+                font-size: 4vw;
+            }
+            .bi-play-circle-fill {
+                font-size: 8rem;
+                top: 25%;
+                left: 40%;
+            }
+        }
+        @media only screen and (min-width: 992px) {
+            .carousel-content {
+                bottom: 20%;
+                font-size: 4vw;
+            }
+            .bi-play-circle-fill {
+                font-size: 10rem;
+                top: 30%;
+                left: calc(40% + 20px);
+            }
+        }
+        @media only screen and (min-width: 1400px) {
+            .carousel-content {
+                bottom: calc(20%-20px);
+                font-size: 4vw;
+            }
+            .bi-play-circle-fill {
+                font-size: 10rem;
+                top: calc(40%+2%);
+                left: 45%;
+            }
+        }
+        @media only screen and (min-width: 2100px) {
+            .carousel-content {
+                bottom: 20%;
+                font-size: 4vw;
+            }
+            .bi-play-circle-fill {
+                font-size: 12rem;
+                top: 40%;
+                left: 45%;
+            }
+        }
+        @media only screen and (min-width: 2600px) {
+            .carousel-content {
+                bottom: 20%;
+                font-size: 4vw;
+            }
+            .bi-play-circle-fill {
+                font-size: 14rem;
+                top: 35%;
+                left: 45%;
+            }
         }
   </style>
 </head>
@@ -92,25 +195,27 @@
     </div>
     <div class="slideshow">
         <div id="carousel" class="carousel carousel-fade">
-        <div class="carousel-inner">
-            <?php
-                foreach ($images as $index => $image) {
-                    $active = !$index ? "active" : "";
-                    echo "<div class='carousel-item {$active}'>
-                        <img src='{$image}' class='d-block w-100' alt='failed to find image'>
-                        <div class='carousel-content'>{$quotes[$index][4]}</div>
-                    </div>";
-                }         
-            ?>
+            <div class="carousel-inner">
+                <?php
+                    foreach ($images as $index => $image) {
+                        $active = !$index ? "active" : "";
+                        echo "<div class='carousel-item {$active}'>
+                            <img src='{$image}' class='d-block w-100' alt='failed to find image'>
+                            <div class='carousel-content'>".getQuote($index)."</div>
+                        </div>";
+                    }         
+                ?>
+                <span id="boot-icon" class="bi bi-play-circle-fill" style="color: rgb(255, 255, 255);"></span>
+            </div>
+            
         </div>
-        </div>
+           
     </div>
     <div class="player">   
         <audio crossorigin autoplay id="musicplayer">
             <source src="<?php echo $audios[array_rand($audios)]; ?>" type="audio/mpeg">
         </audio>
-    </div>
-    
+    </div>    
 </body>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
@@ -120,7 +225,7 @@
 <script src="./assets/js/audio_player.js" type="text/javascript"></script>
 <script src="./assets/js/babel.min.js"></script>
 <script src="./assets/js/landing_babel.js" type="text/babel"></script>
-<script src="./assets/green-audio-player-master/js/green-audio-player.js"></script>
+<script src="./assets/green-audio-player-master/js/green-audio-player.min.js"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         new GreenAudioPlayer('.player');
@@ -134,31 +239,21 @@
         $("canvas").hide();
         $(".ball").hide();
         $("#carousel").show();
-        var carousel = new bootstrap.Carousel($("#carousel"), {
+        $("#carousel").carousel({
             interval: preset_time,
-            ride: "carousel",
-            wrap: true,
+            pause: false,
+            wrap: true
         });
+        $("#carousel").carousel("cycle");
     }, preset_time);
-
-    //running quotizer online app continuously      
-    var audioPlayer = $("#musicplayer");
-    audioPlayer.on("ended", (event) => {
-        $(".landing").toggle();
-        $("canvas").toggle();
-        $(".ball").toggle();
-        $("#carousel").toggle();
-        //add shuffle audios and then change audio src
-        var mp3 = "<?php echo $audios[array_rand($audios)];?> ";
-        audioPlayer.get(0).src = mp3;
-        audioPlayer.get(0).load();
-        audioPlayer.get(0).play();
-        setTimeout(() => {
-            $(".landing").toggle();
-            $("canvas").toggle();
-            $(".ball").toggle();
-            $("#carousel").toggle();
-        }, preset_time);
+    //add click event to show play circle button on carousel
+    $("#carousel").on("click", (event) => {
+       $(".bi-play-circle-fill").toggle();
+       if($(".bi-play-circle-fill").css("display") === "block") {
+            $("#carousel").carousel("pause");
+       } else {
+            $("#carousel").carousel("cycle");
+       }
     });
 </script>
 </html>

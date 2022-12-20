@@ -1,20 +1,32 @@
-1;1;C-2;;S� d�rlig film for 3. ;;;Comedy;;;;;;;;;;;;Media;;;;;;;;;;;;;;;;Minus;REAL;UNREAL;FLUXIC;;Corona;Reporter;;Reviewer;;Advertiser;;;Name+
-2;1;C#-2;;M�ske lidt for pika;;;;;;;Erotic;;Film;Food;;;;Love;;;;;;Personal;;;;;;;;;;;Minus;;Unreal;Fluxic;;;;Commenter;Reviewer;;;;Statement;
-3;1;D-2;;Det var alt for forudsigeligt;;;;;Destiny;;Erotic;;Film;Food;;;;Love;;;;Musik;;;Politik;;;Sport;Work;;;;;;Minus;Real;;Fluxic;JR;;;Commenter;Reviewer;;;;Statement;
-4;1;D#-2;;Effektiv afslapning;;Body;;;;;;;Film;;;;;;;;;Musik;;;;;;;;;;;;Plus;;;Unreal;Fluxic;;;;Commenter;Reviewer;;Advertiser;;Statement;
-5;1;E-2;;Tr�nger til en grundig reng�;;Body;;;;;;;;Food;Health;;;;;;;;;Personal;;;;;Work;;;;;;Minus;Real;;Fluxic;;;;Commenter;;;;;;Name+
-6;1;F-2;;Arbejder med interfacet;;;;;;;;;;;Health;;;;Media;;;;;;;;;;Work;;;;;Plus;;Real;;Fluxic;;;Reporter;;;;;;;Name+
-7;1;F#-2;;V�gnede til duften af oz;;;Comedy;;;;;;;;Health;Horror;;;;;;;Nature;;;;Science;;;;;;;;;;Unreal;Fluxic;;;Reporter;;;;;;;Name+
-8;1;G-2;;Dr�mmen om den ideelle situati;;;;Crime;Destiny;;;Faith;;;;;;Love;;Mental;Money;;;;;;;;Work;;;;;Plus;;;Unreal;Fluxic;;;;;;Politician;Advertiser;;Statement;
-9;1;G#-2;;Efterlod et sporadisk indtryk;;;;;;;;;;;;;;;Media;;;Musik;;;;Relations;;;;;;;;;Minus;;Unreal;Fluxic;;;;Commenter;Reviewer;;;;;Name+
-10;1;A-2;;Der var afslappede vibes;;;;;;;;;;;;;;;;;;Musik;;;;Relations;;;Work;;Slang;;;Plus;;Real;;Fluxic;;;;Commenter;Reviewer;;;;Statement;
-11;1;A#-2;;N�sten som den �gte ;;;;Crime;;;;;;Food;;;;;;;;Musik;;;;;Science;;;;;;;;;Real;;Fluxic;;;;Commenter;Reviewer;;;;Statement;
-12;1;B-2;;Ekstremt smagfuldt;;;;;;;;;Film;Food;;;;;Media;;;Musik;;Personal;;;;;;;;;;Plus;;Real;;Fluxic;;;;Commenter;Reviewer;;Advertiser;;Statement;
-13;1;C-1;;Der var problemer p� arbejd;;;;;;;;;;;;;;;Media;;;;;;;Relations;;;Work;;;;;;Minus;Real;;Fluxic;;;;;;;;;Statement;
-14;1;C#-1;;God varme i de gamle flammer;;;Comedy;;;;Erotic;;;;;;;Love;;;;Musik;;;;;;;;;;;;Plus;;;Unreal;Fluxic;;;;;;;;;Statement;
-15;1;D-1;;En linie har 2 sider;;;;;;;;;;;;;;;;;;;;;Politik;;;;Work;;;;;;;;Unreal;Fluxic;;;Reporter;;;;;;Statement;
-16;1;D#-1;;Ligger under for modens luner;;;;;;;;;Film;;;;;;Media;Mental;;Musik;;Personal;;Relations;;;;;;;;;Minus;Real;;Fluxic;;;;Commenter;;Politician;;;;Name+
-17;1;E-1;;Vidste ikke de var sl�gtnin;;;;;Destiny;;Erotic;;;;;;;;;;;;;;;Relations;;;;;;;;;;;Unreal;Fluxic;;;Reporter;;;;;;Statement;
-18;1;F-1;;Styret af medvind;;;;;Destiny;;;;;;;;;;;;Money;;Nature;;;;;;;;;;;Plus;;;Unreal;Fluxic;;;;Commenter;;;;;;Name+
-19;1;F#-1;;Den patetiske afslutning;;;;;;;Erotic;Faith;Film;Food;Health;Horror;;Love;Media;;;;;;;;;Sport;;;;;;;Minus;;Unreal;Fluxic;JR;;;;;;;;Statement;
-20;1;G-1;;Forr�dt og ford�;;;;Crime;;;;Faith;;;;Horror;;;;;Money;;;Personal;Politik;;;;;;;;;;Minus;;Unreal;Fluxic;;;Reporter;;;;;;Statement;
+2;;;;Måske lidt for pikant;;;;;;;Erotic;;Film;Food;;;;Love;;;;;;;Personal;;;;;;;;;;;;;;Minus;;Unreal;;Property;POV Reviewer;;;Fluxic;;;;Commenter;
+3;;;;Det var alt for forudsigeligt;;;;;Destiny;;Erotic;;Film;Food;;;;Love;;;Military;;Music;;;Politics;;;Sport;;;Work;;;;;;;Minus;Real;;;;POV Reviewer;;;Fluxic;JR;;;Commenter;
+4;;;;Effektiv afslapning;;Body;;;;;;;Film;;;;;;;;;;Music;;;;;;;;;;;;;;;Plus;;;Unreal;;;POV Reviewer;;POV Advertiser;Fluxic;;;;Commenter;
+5;;;;Trænger til en grundig rengøring;;Body;;;;;;;;Food;Health;;;;;;;;;;Personal;;;;;;;Work;;;;;;;Minus;Real;;;;;;;Fluxic;;;;Commenter;Name+
+6;;;;Arbejder med interfacet;;;;;;;;;;;Health;;;;Media;;;;;;;;;;;Tech;;Work;;;;;;Plus;;Real;;;Property;;;;Fluxic;;;Reporter;;Name+
+7;;;;Vågnede til duften af ozon;;;Comedy;;;;;;;;Health;Horror;;;;;;;;Nature;;;;Science;;;;;;;;;;;;;Unreal;;Property;;;;Fluxic;;;Reporter;;Name+
+8;;;;Drømmen om den ideelle situation;;;;Crime;Destiny;;;Faith;;;;;;Love;;Mental;;Money;;;;;;;;;;Work;;;;;;Plus;;;Unreal;;;;POV Politician;POV Advertiser;Fluxic;;;;;
+9;;;;Efterlod et sporadisk indtryk;;;;;;;;;;;;;;;Media;;;;Music;;;;Relations;;;;;;;;;;;;Minus;;Unreal;;Property;POV Reviewer;;;Fluxic;;;;Commenter;Name+
+10;;;;Der var afslappede vibes;;;;;;;;;;;;;;;;;;;Music;;;;Relations;;;;;Work;;;Slang;;;Plus;;Real;;;;POV Reviewer;;;Fluxic;;;;Commenter;
+11;;;;Næsten som den ægte vare;;;;Crime;;;;;;Food;;;;;;;;;Music;;;;;Science;;;;;;;;;;;;Real;;;;POV Reviewer;;;Fluxic;;;;Commenter;
+12;;;;Ekstremt smagfuldt;;;;;;;;;Film;Food;;;;;Media;;;;Music;;Personal;;;;;;;;;;;;;Plus;;Real;;;;POV Reviewer;;POV Advertiser;Fluxic;;;;Commenter;
+13;;;;Der var problemer på arbejdet;;;;;;;;;;;;;;;Media;;;;;;;;Relations;;;;;Work;;;;;;;Minus;Real;;;;;;;Fluxic;;;;;
+14;;;;God varme i de gamle flammer;;;Comedy;;;;Erotic;;;;;;;Love;;;Military;;Music;;;;;;;;;;;;;;;Plus;;;Unreal;;;;;;Fluxic;;;;;
+15;;;;En linie har 2 sider;;;;;;;;;;;;;;;;;;;;;;Politics;;;;;;Work;;;;;;;;;Unreal;;;;;;Fluxic;;;Reporter;;
+16;;;;Ligger under for modens luner;;;;;;;;;Film;;;;;;Media;Mental;;;Music;;Personal;;Relations;;;;;;;;;;;;Minus;Real;;;Property;;POV Politician;;Fluxic;;;;Commenter;Name+
+17;;;;Vidste ikke de var slægtninge;;;;;Destiny;;Erotic;;;;;;;;;;;;;;;;Relations;;;;;;;;;;;;;;Unreal;;;;;;Fluxic;;;Reporter;;Name+
+18;;;;Styret af medvind;;;;;Destiny;;;;;;;;;;;;;Money;;Nature;;;;;;;;;;;;;;Plus;;;Unreal;;Property;;;;Fluxic;;;;Commenter;Name+
+19;;;;Den patetiske afslutning;;;;;;;Erotic;Faith;Film;Food;Health;Horror;;Love;Media;;;;;;;;;;Sport;;;;;;;;;;Minus;;Unreal;;;;;;Fluxic;JR;;;;
+20;;;;Forrådt og fordømt;;;;Crime;;;;Faith;;;;Horror;;;;;Military;Money;;;Personal;Politics;;;;;;;;;;;;;Minus;;Unreal;;Property;;;;Fluxic;;;Reporter;;
+21;;;;Adskilt af usynlighed;;;;;Destiny;;;;;;;;;;;;;;;;;;Relations;Science;;;;;;;;;;;;;Unreal;;;;;;Fluxic;;;;;
+22;;;;Hånden nede i ormedåsen;Animal;Body;Comedy;;;;Erotic;;;;Health;Horror;;;Media;;;Money;;;;;;;;;;;;;Slang;;;;;;Unreal;;;;;;Fluxic;;;;;
+23;;;;Lever af krummerne;;Body;;;;;;Faith;;Food;;;Kids;;;;;Money;;;;;Relations;;;;;;;;;;;;Minus;;Unreal;;;;;;Fluxic;;;Reporter;;Name+
+24;;;;Høj på div substanser;;Body;Comedy;Crime;;;;;;;Health;;;;;;;;;;;;;Science;;;;;;;;;;;;;Unreal;;Property;;;;Fluxic;;;Reporter;;Name+
+25;;;;Et tegn på oprigtighed;;;;;;;;Faith;Film;;;;;;Media;;;;Music;;;Politics;Relations;;;;;;;;;;;Plus;;Real;;;;POV Reviewer;POV Politician;;Fluxic;;;;Commenter;
+26;;;;Punkteret af nålen;;Body;;Crime;;;;;;;Health;Horror;;;;;;;;;;;;Science;;Tech;;;;;;;;;Minus;;Unreal;;Property;;;;Fluxic;;;Reporter;;
+27;;;;Hvem der bare kunne se klart;;;;;Destiny;;;;;;;;;;;Mental;;;;;Personal;;;;;;;;Dialogue;;;;;;Minus;Real;;;;;;;Fluxic;;;;Commenter;
+28;;;;Utroligt men sandt;;;;Crime;;;;;;;;;;;Media;;;;;;;Politics;;;;;;;Dialogue;;;;;;;Real;;;;POV Reviewer;;POV Advertiser;Fluxic;JR;;;Commenter;
+29;;;;En noget hektisk franchise;;;;;;;;;;Food;;;;;Media;;;Money;;;;;;;;;;Work;;;;;;;;;Unreal;;;;;;Fluxic;;;;Commenter;
+30;;;;Hjemme er hvor hjertet er;;;;;;;;;;;Health;;;Love;;;;;;;Personal;;;;Sport;;;;;Cliche;;Retro;;Plus;;Real;;;;;;POV Advertiser;Fluxic;;;;;
+31;;;;Hvor er det bare typisk;;;;;;;;;;;;;;;Media;;;;;;;Politics;Relations;;;;;;Dialogue;Cliche;;;;;Minus;Real;;;;POV Reviewer;;;Fluxic;;;;Commenter;
+32;;;;Helt vævet ind i hinanden;;Body;;;Destiny;;Erotic;;;;;;;Love;Media;;;;;Nature;;;;;;;;;;;;;;Plus;;;Unreal;;;;;;Fluxic;;;;;
+33;;;;Måske er det allerede for sent?;;;;;Destiny;;;;;;Health;Horror;;;;;Military;;;Nature;Personal;;;Science;Sport;;;Work;Dialogue;;;;;;Minus;Real;;;;;POV Politician;;Fluxic;;;;Commenter;
