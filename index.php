@@ -67,21 +67,14 @@
   <title>Quotizer online</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- <link href="./assets/css/loader_particles.css" rel="stylesheet" /> -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css'>
+  <link rel="stylesheet" href="./assets/Custom-audio-player/audio.css">
+  <link rel="stylesheet" href="./assets/css/icono.min.css">
   <link href="./assets/css/landing_babel.css" rel="stylesheet" />
   <link href="./assets/css/audio_player.css" rel="stylesheet" />
-  <link rel="stylesheet" href="./assets/green-audio-player-master/css/green-audio-player.min.css">
   <link rel="shortcut icon" href="#" />
   <style>
-        .player {
-            position: -webkit-sticky;
-            position: fixed;
-            z-index: 9999;
-            bottom:0;
-            width: 100%;
-        }
         .carousel-content {
             position: absolute;
             bottom: 15%;
@@ -171,17 +164,6 @@
   </style>
 </head>
 <body>
-    
-    <!-- <div class="loader">
-        <div class="e-loadholder">
-            <div class="m-loader">
-                <span class="e-text">Loading</span>
-            </div>
-        </div>
-        <div id="particleCanvas-Blue"></div>
-        <div id="particleCanvas-White"></div>
-    </div> -->
-    
     <div class="landing">
         <div class="title">
             <h3>Olek - 2022</h3>
@@ -211,25 +193,51 @@
         </div>
            
     </div>
-    <div class="player">   
+    <!-- <div class="player">   
         <audio crossorigin autoplay id="musicplayer">
             <source src="<?php echo $audios[array_rand($audios)]; ?>" type="audio/mpeg">
         </audio>
-    </div>    
+    </div>     -->
+    <div class="audio-player-custom">
+        <div style="width: 50px; height: 50px;"></div>
+        <div class="audio-player">
+        <div class="timeline">
+            <div class="progress"></div>
+        </div>
+        <div class="controls">
+            <div class="play-container">
+            <div class="toggle-play play">
+            </div>
+            </div>
+            <div class="time">
+            <div class="current">0:00</div>
+            <div class="divider">/</div>
+            <div class="length"></div>
+            </div>
+            <div class="name">Music Song</div>
+        <!--     credit for icon to https://saeedalipoor.github.io/icono/ -->
+            <span class="icono-volumnHigh"></span>
+            <div class="volume-container">
+            <div class="volume-button">
+                <div class="volume icono-volumeMedium"></div>
+            </div>         
+            <div class="volume-slider">
+                <div class="volume-percentage"></div>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
 </body>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="./assets/js/particles.min.js"></script>
-<!-- <script src="./assets/js/loader_particles.js" type="text/javascript"></script> -->
 <script src="./assets/js/audio_player.js" type="text/javascript"></script>
 <script src="./assets/js/babel.min.js"></script>
 <script src="./assets/js/landing_babel.js" type="text/babel"></script>
-<script src="./assets/green-audio-player-master/js/green-audio-player.min.js"></script>
+<script src="./assets/Custom-audio-player/audio.js" type="text/javascript"></script>
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        new GreenAudioPlayer('.player');
-    });
 
     var preset_time = <?php echo $preset_time; ?>;
     //initialize quotize onlien app
