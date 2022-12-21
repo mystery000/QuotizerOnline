@@ -38,7 +38,7 @@ audio.addEventListener("ended", () => {
   $(".ball").toggle();
   $("#carousel").toggle();
   $("#carousel").carousel("pause");
-  
+  $(".bi-play-circle-fill").hide();
 
   audio.src = pickRandomMusic();
   audio.load();
