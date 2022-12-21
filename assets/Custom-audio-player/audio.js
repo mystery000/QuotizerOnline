@@ -5,19 +5,20 @@
 // - Hover over sliders to see preview of timestamp/volume change
 
 const audioPlayer = document.querySelector(".audio-player");
-const audio = new Audio(
-  "https://ia800905.us.archive.org/19/items/FREE_background_music_dhalius/backsound.mp3"
-);
-//credit for song: Adrian kreativaweb@gmail.com
-//Enable autoplay 
-audio.autoplay = true;
 const playBtn = audioPlayer.querySelector(".controls .toggle-play");
-if (audio.paused) {
+const audio = new Audio(
+  // "https://ia800905.us.archive.org/19/items/FREE_background_music_dhalius/backsound.mp3",
+  pickRandomMusic()
+);
+//audio player settings
+audio.preload = "auto";
+//credit for song: Adrian kreativaweb@gmail.com
+
+// autoplay music
+var promise  = audio.play();
+if(promise !== undefined) {
   playBtn.classList.remove("play");
   playBtn.classList.add("pause");
-} else {
-  playBtn.classList.remove("pause");
-  playBtn.classList.add("play");
 }
 
 audio.addEventListener(
@@ -30,18 +31,19 @@ audio.addEventListener(
   },
   false
 );
-audio.addEventListener("playing", () => {
-  console.log("adfadfadf");
-});
 //When the current song is over, play some random music again.
 audio.addEventListener("ended", () => {
-  console.log("music is over");
   $(".landing").toggle();
   $("canvas").toggle();
   $(".ball").toggle();
   $("#carousel").toggle();
   $("#carousel").carousel("pause");
+  
+
+  audio.src = pickRandomMusic();
+  audio.load();
   audio.play();
+
   setTimeout(() => {
     $(".landing").toggle();
     $("canvas").toggle();

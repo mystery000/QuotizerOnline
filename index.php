@@ -49,7 +49,7 @@
                 return $quotes[$index][4];
             }
         };
-        return $quotes[$index][4];
+        return null;
     }
     
     // get all resources form assets
@@ -96,9 +96,9 @@
             cursor: pointer;
             display: none;
         }
-        .bi-play-circle-fill:hover {
-
-        }
+        /*
+            Responsive (400px, 767px, 992px, 1400px, 2100px, 2600px)
+        */
         @media screen and (min-width: 400px) {
             .bi-play-circle-fill {
                 font-size: 6rem;
@@ -193,11 +193,6 @@
         </div>
            
     </div>
-    <!-- <div class="player">   
-        <audio crossorigin autoplay id="musicplayer">
-            <source src="<?php echo $audios[array_rand($audios)]; ?>" type="audio/mpeg">
-        </audio>
-    </div>     -->
     <div class="audio-player-custom">
         <div style="width: 50px; height: 50px;"></div>
         <div class="audio-player">
@@ -229,7 +224,12 @@
         </div>
     </div>
 </body>
-
+<script>
+    //javascript global function for audio JS
+    const pickRandomMusic = () => {
+        return <?php echo json_encode($audios[0]); ?>
+    }
+</script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="./assets/js/particles.min.js"></script>
@@ -238,7 +238,7 @@
 <script src="./assets/js/landing_babel.js" type="text/babel"></script>
 <script src="./assets/Custom-audio-player/audio.js" type="text/javascript"></script>
 <script>
-
+    //javascript global variables for php variables
     var preset_time = <?php echo $preset_time; ?>;
     //initialize quotize onlien app
     $("#carousel").hide();
@@ -254,6 +254,7 @@
         });
         $("#carousel").carousel("cycle");
     }, preset_time);
+
     //add click event to show play circle button on carousel
     $("#carousel").on("click", (event) => {
        $(".bi-play-circle-fill").toggle();
