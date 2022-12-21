@@ -6,12 +6,15 @@
 
 const audioPlayer = document.querySelector(".audio-player");
 const playBtn = audioPlayer.querySelector(".controls .toggle-play");
+const audio_name = $(".audio-player-custom .name");
 const audio = new Audio(
   // "https://ia800905.us.archive.org/19/items/FREE_background_music_dhalius/backsound.mp3",
   pickRandomMusic()
 );
 //audio player settings
 audio.preload = "auto";
+//Set audio player title
+audio_name.text(audio.src.split('/').at(-1));
 //credit for song: Adrian kreativaweb@gmail.com
 
 // autoplay music
@@ -43,6 +46,7 @@ audio.addEventListener("ended", () => {
   audio.src = pickRandomMusic();
   audio.load();
   audio.play();
+  audio_name.text(audio.src.split('/').at(-1)); // Set audio player title
 
   setTimeout(() => {
     $(".landing").toggle();
