@@ -72,7 +72,6 @@
   <link rel="stylesheet" href="./assets/Custom-audio-player/audio.css">
   <link rel="stylesheet" href="./assets/css/icono.min.css">
   <link href="./assets/css/landing_babel.css" rel="stylesheet" />
-  <link href="./assets/css/audio_player.css" rel="stylesheet" />
   <link rel="shortcut icon" href="#" />
   <style>
         .carousel-content {
@@ -233,7 +232,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="./assets/js/particles.min.js"></script>
-<script src="./assets/js/audio_player.js" type="text/javascript"></script>
 <script src="./assets/js/babel.min.js"></script>
 <script src="./assets/js/landing_babel.js" type="text/babel"></script>
 <script src="./assets/Custom-audio-player/audio.js" type="text/javascript"></script>
