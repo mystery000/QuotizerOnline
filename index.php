@@ -55,7 +55,7 @@
     $images = getImages("./assets/pix/");
     // shuffles(randomizes the order of elements in) an array 
     shuffle($images);
-    shuffle($audios);
+    // shuffle($audios);
     // shuffle($quotes);
 
 ?>
@@ -223,9 +223,17 @@
     </div>
 </body>
 <script>
+    //function to get a random item from an array
+    function getRandomItem(arr) {
+        const randomIndex = Math.floor(Math.random() * arr.length);
+        const item  = arr[randomIndex];
+        return item;
+    }
+    //javascript variables for audios 
+    var audios = <?php echo json_encode($audios); ?>;
     //javascript global function for audio JS
-    const pickRandomMusic = () => {
-        return <?php echo json_encode($audios[0]); ?>
+    function pickRandomMusic(){
+        return getRandomItem(audios);
     }
 </script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
