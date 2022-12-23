@@ -1,9 +1,8 @@
 <?php
     //initial setting variables for quotize online app
-    $preset_time = 3000;
+    $preset_time = 6000;
     $text_formatting = "Montserrat";
-    $quote_config_path = "./assets/txt/config.csv";
-
+    
     //get all images(jpg, png) from assets
     function getImages($dir) {
         $images = glob($dir.'*.{jpg,JPG,png,PNG}', GLOB_BRACE);
@@ -14,42 +13,40 @@
         $audios = glob($dir.'*.{mp3, MP3}', GLOB_BRACE);
         return $audios;
     }
-    //get quotes from csv in assets folder
+    //get active categories from config 
+    function getActiveCategories($dir) {
+        $config_categories = [];
+        $fp = fopen($dir, "r");
+        if($fp != FALSE) {
+            if(!feof($fp)) {
+                $data = fgetcsv($fp, 1000, ";");
+                if(!empty($data)) $config_categories = $data;
+            }
+        };
+        fclose($fp);
+        return $config_categories;
+    }
+    //get quotes that has active categories
     function getQuotes($dir) {
+        $config_categories = getActiveCategories("./assets/txt/config.csv");
+        //get quotes that has active categories
         $quotes = [];
         $CSVfp = fopen($dir, "r");
         if($CSVfp != FALSE) {
             while(!feof($CSVfp)) {
                 $data = fgetcsv($CSVfp, 1000, ";");
-                if(!empty($data)) array_push($quotes, $data);
+                if(!empty($data)) {
+                    $categories = array_slice($data, 5);
+                    foreach($categories as $key => $category) {
+                        if($category && in_array($category, $config_categories)) {
+                            array_push($quotes,$data);
+                        }
+                    };
+                }
             }
         }
         fclose($CSVfp);
         return $quotes;
-    }
-    //get only quote that categories exists in config.csv
-    function getQuote($index) {
-        global $quote_config_path;
-        global $quotes;
-        
-        $categories = [];
-        $config_categories = [];
-        //get categories of quote
-        $categories = array_slice($quotes[$index], 5);
-        $CSVfp = fopen($quote_config_path, "r");
-        if($CSVfp != FALSE) {
-            if(!feof($CSVfp)) {
-                $data = fgetcsv($CSVfp, 1000, ";");
-                if(!empty($data)) $config_categories = $data;
-            }
-        };
-        //check if config has categories of quote
-        foreach($categories as $key => $category) {
-            if($category && in_array($category, $config_categories)) {
-                return $quotes[$index][4];
-            }
-        };
-        return null;
     }
     
     // get all resources form assets
@@ -59,7 +56,8 @@
     // shuffles(randomizes the order of elements in) an array 
     shuffle($images);
     shuffle($audios);
-    shuffle($quotes);
+    // shuffle($quotes);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -180,9 +178,10 @@
                 <?php
                     foreach ($images as $index => $image) {
                         $active = !$index ? "active" : "";
+                        $id = array_rand($quotes);
                         echo "<div class='carousel-item {$active}'>
                             <img src='{$image}' class='d-block w-100' alt='failed to find image'>
-                            <div class='carousel-content'>".getQuote($index)."</div>
+                            <div class='carousel-content'>{$quotes[$id][4]}</div>
                         </div>";
                     }         
                 ?>
