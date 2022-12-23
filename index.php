@@ -82,7 +82,7 @@
             font-size: 5vw;
             font-weight: bold;
             font-family: <?php echo $text_formatting; ?>;
-            -webkit-text-stroke-width: 1px;
+            -webkit-text-stroke-width: 2px;
             -webkit-text-stroke-color: black;
         }
         .bi-play-circle-fill{
