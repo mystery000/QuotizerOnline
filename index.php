@@ -26,11 +26,11 @@
         fclose($fp);
         return $config_categories;
     }
-    //get quotes that has active categories
+    //get quotes filtered by config.csv
     function getQuotes($dir) {
         $config_categories = getActiveCategories("./assets/txt/config.csv");
         //get quotes that has active categories
-        $quotes = [];
+        $quotesFiltered = [];
         $CSVfp = fopen($dir, "r");
         if($CSVfp != FALSE) {
             while(!feof($CSVfp)) {
@@ -39,25 +39,22 @@
                     $categories = array_slice($data, 5);
                     foreach($categories as $key => $category) {
                         if($category && in_array($category, $config_categories)) {
-                            array_push($quotes,$data);
+                            array_push($quotesFiltered,$data);
                         }
                     };
                 }
             }
         }
         fclose($CSVfp);
-        return $quotes;
+        return $quotesFiltered;
     }
     
     // get all resources form assets
-    $quotes = getQuotes("./assets/txt/DKM.csv");
+    $quotesFiltered = getQuotes("./assets/txt/DKM.csv");
     $audios = getAudios("./assets/mp3/");
     $images = getImages("./assets/pix/");
     // shuffles(randomizes the order of elements in) an array 
     shuffle($images);
-    // shuffle($audios);
-    // shuffle($quotes);
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -176,12 +173,13 @@
         <div id="carousel" class="carousel carousel-fade">
             <div class="carousel-inner">
                 <?php
+                    // foreach($quotesFiltered as $a) echo "<script>console.log(".$a[0].");</script>";
                     foreach ($images as $index => $image) {
                         $active = !$index ? "active" : "";
-                        $id = array_rand($quotes);
+                        $id = array_rand($quotesFiltered); // Randomize quotes filtered for use on top of images during playback
                         echo "<div class='carousel-item {$active}'>
                             <img src='{$image}' class='d-block w-100' alt='failed to find image'>
-                            <div class='carousel-content'>{$quotes[$id][4]}</div>
+                            <div class='carousel-content'>{$quotesFiltered[$id][4]}</div>
                         </div>";
                     }         
                 ?>
@@ -232,6 +230,7 @@
     //javascript variables for audios 
     var audios = <?php echo json_encode($audios); ?>;
     //javascript global function for audio JS
+    // Select random music from mp3 folder
     function pickRandomMusic(){
         return getRandomItem(audios);
     }
