@@ -75,11 +75,7 @@
             left: 10%;
             color: white;
             z-index: 20;
-            /* text-shadow: 0 1px 2px rgba(0,0,0,.6); */
-            text-shadow: -1px 1px 2px #000,
-				          1px 2px 6px #000,
-                          1px -1px 0 #000,
-				         -1px -1px 0 #000;
+            text-shadow: 0 1px 2px rgba(0,0,0,.6);
             font-size: 5vw;
             font-weight: bold;
             font-family: <?php echo $text_formatting; ?>;
@@ -145,7 +141,7 @@
         }
         @media only screen and (min-width: 1400px) {
             .carousel-content {
-                bottom: 15%;
+                bottom: 20%;
                 font-size: 5vw;
             }
             .bi-play-circle-fill {
@@ -256,6 +252,7 @@
     </div>
 </body>
 <script>
+
     //function to get a random item from an array
     function getRandomItem(arr) {
         const randomIndex = Math.floor(Math.random() * arr.length);
