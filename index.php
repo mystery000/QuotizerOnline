@@ -72,7 +72,7 @@
         .carousel-content {
             position: absolute;
             bottom: 15%;
-            left: 15%;
+            left: 10%;
             color: white;
             z-index: 20;
             /* text-shadow: 0 1px 2px rgba(0,0,0,.6); */
@@ -96,23 +96,34 @@
             display: none;
         }
         /*
-            Responsive (400px, 767px, 992px, 1400px, 2100px, 2600px)
+            Responsive (576px, 768px, 992px, 1400px, 2100px, 2600px)
         */
-        @media screen and (min-width: 400px) {
+        @media screen and (max-width: 576px) {
+            .bi-play-circle-fill {
+                font-size: 5rem;
+                top: 27%;
+                left: 42%;
+            }
+            .carousel-content {
+                font-size: 7vw;
+                -webkit-text-stroke-width: 1px;
+            }
+        }
+        @media screen and (min-width: 576px) {
             .bi-play-circle-fill {
                 font-size: 6rem;
                 top: 27%;
                 left: 42%;
             }
             .carousel-content {
-                font-size: 8vw;
+                font-size: 6vw;
                 -webkit-text-stroke-width: 1px;
             }
         }
-        @media  screen and (min-width: 767px) {
+        @media  screen and (min-width: 768px) {
             .carousel-content {
-                bottom: 20%;
-                font-size: 8vw;
+                bottom: 15%;
+                font-size: 6vw;
                 -webkit-text-stroke-width: 1px;
             }
             .bi-play-circle-fill {
@@ -123,8 +134,8 @@
         }
         @media only screen and (min-width: 992px) {
             .carousel-content {
-                bottom: 20%;
-                font-size: 7vw;
+                bottom: 15%;
+                font-size: 5vw;
             }
             .bi-play-circle-fill {
                 font-size: 10rem;
@@ -134,8 +145,8 @@
         }
         @media only screen and (min-width: 1400px) {
             .carousel-content {
-                bottom: calc(20%-20px);
-                font-size: 6vw;
+                bottom: 15%;
+                font-size: 5vw;
             }
             .bi-play-circle-fill {
                 font-size: 10rem;
@@ -145,8 +156,8 @@
         }
         @media only screen and (min-width: 2100px) {
             .carousel-content {
-                bottom: 20%;
-                font-size: 5vw;
+                bottom: 15%;
+                font-size: 4vw;
             }
             .bi-play-circle-fill {
                 font-size: 12rem;
@@ -156,7 +167,7 @@
         }
         @media only screen and (min-width: 2600px) {
             .carousel-content {
-                bottom: 20%;
+                bottom: 15%;
                 font-size: 4vw;
             }
             .bi-play-circle-fill {
@@ -164,6 +175,15 @@
                 top: 35%;
                 left: 45%;
             }
+        }
+
+        .carousel-item {
+            transition: transform 2.6s ease-in-out;
+        }
+
+        .carousel-fade .active.carousel-item-start,
+        .carousel-fade .active.carousel-item-end {
+            transition: opacity 0s 2.6s;
         }
   </style>
 </head>
