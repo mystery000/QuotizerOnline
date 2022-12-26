@@ -75,12 +75,17 @@
             left: 15%;
             color: white;
             z-index: 20;
-            text-shadow: 0 1px 2px rgba(0,0,0,.6);
+            /* text-shadow: 0 1px 2px rgba(0,0,0,.6); */
+            text-shadow: -1px 1px 2px #000,
+				          1px 2px 6px #000,
+                          1px -1px 0 #000,
+				         -1px -1px 0 #000;
             font-size: 5vw;
             font-weight: bold;
             font-family: <?php echo $text_formatting; ?>;
             -webkit-text-stroke-width: 2px;
             -webkit-text-stroke-color: black;
+            -webkit-text-fill-color: white;
         }
         .bi-play-circle-fill{
             position: absolute;
@@ -99,11 +104,16 @@
                 top: 27%;
                 left: 42%;
             }
+            .carousel-content {
+                font-size: 8vw;
+                -webkit-text-stroke-width: 1px;
+            }
         }
         @media  screen and (min-width: 767px) {
             .carousel-content {
                 bottom: 20%;
-                font-size: 4vw;
+                font-size: 8vw;
+                -webkit-text-stroke-width: 1px;
             }
             .bi-play-circle-fill {
                 font-size: 8rem;
@@ -114,7 +124,7 @@
         @media only screen and (min-width: 992px) {
             .carousel-content {
                 bottom: 20%;
-                font-size: 4vw;
+                font-size: 7vw;
             }
             .bi-play-circle-fill {
                 font-size: 10rem;
@@ -125,7 +135,7 @@
         @media only screen and (min-width: 1400px) {
             .carousel-content {
                 bottom: calc(20%-20px);
-                font-size: 4vw;
+                font-size: 6vw;
             }
             .bi-play-circle-fill {
                 font-size: 10rem;
@@ -136,7 +146,7 @@
         @media only screen and (min-width: 2100px) {
             .carousel-content {
                 bottom: 20%;
-                font-size: 4vw;
+                font-size: 5vw;
             }
             .bi-play-circle-fill {
                 font-size: 12rem;
@@ -170,16 +180,21 @@
         </div>
     </div>
     <div class="slideshow">
-        <div id="carousel" class="carousel carousel-fade">
+        <div id="carousel" class="carousel slide carousel-fade">
             <div class="carousel-inner">
                 <?php
                     // foreach($quotesFiltered as $a) echo "<script>console.log(".$a[0].");</script>";
                     foreach ($images as $index => $image) {
                         $active = !$index ? "active" : "";
-                        $id = array_rand($quotesFiltered); // Randomize quotes filtered for use on top of images during playback
+                        // Select different quotations from each other 
+                        $first_quote_id = array_rand($quotesFiltered); // Randomize quotes filtered for use on top of images during playback
+                        do {
+                            $second_quote_id = array_rand($quotesFiltered);
+                        } while($second_quote_id == $first_quote_id); 
+                            
                         echo "<div class='carousel-item {$active}'>
                             <img src='{$image}' class='d-block w-100' alt='failed to find image'>
-                            <div class='carousel-content'>{$quotesFiltered[$id][4]}</div>
+                            <div class='carousel-content'>{$quotesFiltered[$first_quote_id][4]}<br />{$quotesFiltered[$second_quote_id][4]}</div>
                         </div>";
                     }         
                 ?>
@@ -264,8 +279,10 @@
        $(".bi-play-circle-fill").toggle();
        if($(".bi-play-circle-fill").css("display") === "block") {
             $("#carousel").carousel("pause");
+            playBtn.click()
        } else {
             $("#carousel").carousel("cycle");
+            playBtn.click()
        }
     });
 </script>

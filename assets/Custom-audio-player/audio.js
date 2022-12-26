@@ -92,10 +92,14 @@ playBtn.addEventListener(
       playBtn.classList.remove("play");
       playBtn.classList.add("pause");
       audio.play();
+      $(".bi-play-circle-fill").hide();
+      $("#carousel").carousel("cycle");
     } else {
       playBtn.classList.remove("pause");
       playBtn.classList.add("play");
       audio.pause();
+      $(".bi-play-circle-fill").show();
+      $("#carousel").carousel("pause");
     }
   },
   false
