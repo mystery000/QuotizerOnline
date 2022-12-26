@@ -75,7 +75,8 @@
             left: 10%;
             color: white;
             z-index: 20;
-            text-shadow: 0 1px 2px rgba(0,0,0,.6);
+            /* text-shadow: 0 1px 2px rgba(0,0,0,.6); */
+            text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000 !important;
             font-size: 5vw;
             font-weight: bold;
             font-family: <?php echo $text_formatting; ?>;
