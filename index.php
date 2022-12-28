@@ -1,7 +1,7 @@
 <?php
     //initial setting variables for quotize online app
-    $preset_time = 6000;
-    $text_formatting = "Montserrat";
+    $preset_time = 7000;
+    $text_formatting = "Arial";
     
     //get all images(jpg, png) from assets
     function getImages($dir) {
@@ -187,9 +187,11 @@
 <body>
     <div class="landing">
         <div class="title">
-            <h3>Olek - 2022</h3>
+            <h3>RANUM</h3>
             <h1>Quotizer Online</h1>
-            <h3>Truly unique experience</h3>
+            <h3>Your own unique experience</h3>
+            <h3> .... </h3>
+            <h3>Loading new scenario - Please wait...</h3>
         </div>
         <div class="more-pens">
             <a target="_blank" href="#" class="white-mode">Extend Plots1</a>
