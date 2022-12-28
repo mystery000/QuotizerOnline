@@ -1,8 +1,10 @@
 <?php
     //initial setting variables for quotize online app
     $preset_time = 7000;
-    $text_formatting = "Arial";
-    
+    $first_text_line_formatting = "Arial";
+    $second_text_line_formatting = "Montserrat";
+    $second_text_line_fontsize = '5vw';
+
     //get all images(jpg, png) from assets
     function getImages($dir) {
         $images = glob($dir.'*.{jpg,JPG,png,PNG}', GLOB_BRACE);
@@ -79,10 +81,16 @@
             text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000 !important;
             font-size: 5vw;
             font-weight: bold;
-            font-family: <?php echo $text_formatting; ?>;
             -webkit-text-stroke-width: 2px;
             -webkit-text-stroke-color: black;
             -webkit-text-fill-color: white;
+        }
+        .carousel-content .first-text-line {
+            font-family: <?php echo $first_text_line_formatting; ?>;
+        }
+        .carousel-content .second-text-line {
+            font-family: <?php echo $second_text_line_formatting; ?>;
+            font-size: <?php echo $second_text_line_fontsize; ?>;
         }
         .bi-play-circle-fill{
             position: absolute;
@@ -213,7 +221,7 @@
                             
                         echo "<div class='carousel-item {$active}'>
                             <img src='{$image}' class='d-block w-100' alt='failed to find image'>
-                            <div class='carousel-content'>{$quotesFiltered[$first_quote_id][4]}<br />{$quotesFiltered[$second_quote_id][4]}</div>
+                            <div class='carousel-content'><span class='first-text-line'>{$quotesFiltered[$first_quote_id][4]}</span><br /><span class='second-text-line'>{$quotesFiltered[$second_quote_id][4]}</span></div>
                         </div>";
                     }         
                 ?>
