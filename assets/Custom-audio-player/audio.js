@@ -16,19 +16,19 @@ audio.preload = "auto";
 //Set audio player title
 audio_name.text(audio.src.split('/').at(-1));
 
-var promise  = audio.play();
-if(promise !== undefined) {
-  promise.then(() => {
-    //Automatic playback started!
-    playBtn.classList.remove("play");
-    playBtn.classList.add("pause");
-  }).catch(error => {
-    //Automatic playback failed!
-    //Show a 'play' button so that user can start playback
-    playBtn.classList.add("play");
-    playBtn.classList.remove("pause");
-  });
-}
+// var promise  = audio.play();
+// if(promise !== undefined) {
+//   promise.then(() => {
+//     //Automatic playback started!
+//     playBtn.classList.remove("play");
+//     playBtn.classList.add("pause");
+//   }).catch(error => {
+//     //Automatic playback failed!
+//     //Show a 'play' button so that user can start playback
+//     playBtn.classList.add("play");
+//     playBtn.classList.remove("pause");
+//   });
+// }
 audio.addEventListener(
   "loadeddata",
   () => {

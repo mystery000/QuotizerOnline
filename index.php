@@ -300,16 +300,17 @@
             pause: false,
             wrap: true
         });
-        $("#carousel").carousel("cycle");
+        $(".bi-play-circle-fill").show();
+        $("#carousel").carousel("pause");
     }, preset_time);
 
     //add click event to show play circle button on carousel
     $("#carousel").on("click", (event) => {
        $(".bi-play-circle-fill").toggle();
        if($(".bi-play-circle-fill").css("display") === "block") {
-            $("#carousel").carousel("pause");
+           $("#carousel").carousel("pause");
             playBtn.click()
-       } else {
+        } else {
             $("#carousel").carousel("cycle");
             playBtn.click()
        }
