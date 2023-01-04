@@ -84,6 +84,7 @@
             -webkit-text-stroke-width: 2px;
             -webkit-text-stroke-color: black;
             -webkit-text-fill-color: white;
+            line-height: 80%;
         }
         .carousel-content .first-text-line {
             font-family: <?php echo $first_text_line_formatting; ?>;
