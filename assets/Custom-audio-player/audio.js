@@ -45,6 +45,7 @@ audio.addEventListener("ended", () => {
   $("canvas").toggle();
   $(".ball").toggle();
   $("#carousel").toggle();
+  $("#carousel").carousel(0);
   $("#carousel").carousel("pause");
   $(".bi-play-circle-fill").hide();
 
