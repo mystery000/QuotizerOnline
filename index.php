@@ -290,6 +290,7 @@
     var preset_time = <?php echo $preset_time; ?>;
     //initialize quotize onlien app
     $("#carousel").hide();
+    playBtn.style.pointerEvents = 'none';
     setTimeout(() => {
         $(".landing").hide();
         $("canvas").hide();
@@ -302,6 +303,7 @@
         });
         $(".bi-play-circle-fill").show();
         $("#carousel").carousel("pause");
+        playBtn.style.pointerEvents = 'auto';
     }, preset_time);
 
     //add click event to show play circle button on carousel

@@ -48,7 +48,7 @@ audio.addEventListener("ended", () => {
   $("#carousel").carousel(0);
   $("#carousel").carousel("pause");
   $(".bi-play-circle-fill").hide();
-
+  playBtn.style.pointerEvents = 'none';
   audio.src = pickRandomMusic();
   audio.load();
   audio.play();
@@ -60,6 +60,7 @@ audio.addEventListener("ended", () => {
     $(".ball").toggle();
     $("#carousel").toggle();
     $("#carousel").carousel("cycle");
+    playBtn.style.pointerEvents = 'auto';
   }, preset_time);
 });
 
