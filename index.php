@@ -2,8 +2,8 @@
     //initial setting variables for quotize online app
     $preset_time = 7000;
     $first_text_line_formatting = "Arial";
-    $second_text_line_formatting = "Montserrat";
-    $second_text_line_fontsize = '5vw';
+    $second_text_line_formatting = "Arial";
+    $second_text_line_fontsize = '3vw';
 
     //get all images(jpg, png) from assets
     function getImages($dir) {
