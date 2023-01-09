@@ -54,6 +54,19 @@ audio.addEventListener("ended", () => {
   audio.play();
   audio_name.text(audio.src.split('/').at(-1)); // Set audio player title
 
+  //shuffle the carousel image sequence
+  let carousel_items = $('.carousel-item >img');
+  carousel_items.addClass('lazy');
+  carousel_items.removeAttr('src');
+  let carousel_firstTextLine = $('.first-text-line');
+  let carousel_secondTextLine = $('.second-text-line');
+  let carousel_items_len = carousel_items.length;
+  for(let i = 0; i < carousel_items_len; i++) {
+    carousel_items[i].dataset.src = pickRandomImages();
+    carousel_firstTextLine[i].innerText = pickRandomQuote();
+    carousel_secondTextLine[i].innerText = pickRandomQuote();
+  }
+
   setTimeout(() => {
     $(".landing").toggle();
     $("canvas").toggle();
@@ -62,9 +75,52 @@ audio.addEventListener("ended", () => {
     $("#carousel").carousel("cycle");
     playBtn.style.pointerEvents = 'auto';
   }, preset_time);
+  //lazy image loading
+  var lazyloadImages;    
+  if ("IntersectionObserver" in window) {
+      lazyloadImages = document.querySelectorAll(".lazy");
+      var imageObserver = new IntersectionObserver(function(entries, observer) {
+      entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+          var image = entry.target;
+          image.src = image.dataset.src;
+          image.classList.remove("lazy");
+          imageObserver.unobserve(image);
+          }
+      });
+      });
+      lazyloadImages.forEach(function(image) {
+      imageObserver.observe(image);
+      });
+  } else {  
+      var lazyloadThrottleTimeout;
+      lazyloadImages = document.querySelectorAll(".lazy");
+      
+      function lazyload () {
+      if(lazyloadThrottleTimeout) {
+          clearTimeout(lazyloadThrottleTimeout);
+      }    
+
+      lazyloadThrottleTimeout = setTimeout(function() {
+          var scrollTop = window.pageYOffset;
+          lazyloadImages.forEach(function(img) {
+              if(img.offsetTop < (window.innerHeight + scrollTop)) {
+              img.src = img.dataset.src;
+              img.classList.remove('lazy');
+              }
+          });
+          if(lazyloadImages.length == 0) { 
+          document.removeEventListener("scroll", lazyload);
+          window.removeEventListener("resize", lazyload);
+          window.removeEventListener("orientationChange", lazyload);
+          }
+      }, 20);
+      }
+      document.addEventListener("scroll", lazyload);
+      window.addEventListener("resize", lazyload);
+      window.addEventListener("orientationChange", lazyload);
+  }
 });
-
-
 //click on timeline to skip around
 const timeline = audioPlayer.querySelector(".timeline");
 timeline.addEventListener("click", e => {
